@@ -37,20 +37,20 @@ DecodingResult decode(ByteView& from, Hash& to) noexcept {
     return rlp::decode(from, dynamic_cast<evmc::bytes32&>(to));
 }
 
-template <>
-DecodingResult decode(ByteView& from, BlockBodiesPacket& to) noexcept {
-    return rlp::decode_vector(from, to);
-}
+// template <>
+// DecodingResult decode(ByteView& from, BlockBodiesPacket& to) noexcept {
+//     return rlp::decode(from, to);
+// }
 
-template <>
-DecodingResult decode(ByteView& from, BlockHeadersPacket& to) noexcept {
-    return rlp::decode_vector(from, to);
-}
+// template <>
+// DecodingResult decode(ByteView& from, BlockHeadersPacket& to) noexcept {
+//     return rlp::decode(from, to);
+// }
 
-template <>
-DecodingResult decode(ByteView& from, GetBlockBodiesPacket& to) noexcept {
-    return rlp::decode_vector(from, to);
-}
+// template <>
+// DecodingResult decode(ByteView& from, GetBlockBodiesPacket& to) noexcept {
+//     return rlp::decode(from, to);
+// }
 
 template <>
 DecodingResult decode(ByteView& from, NewBlockHash& to) noexcept {
@@ -74,10 +74,10 @@ DecodingResult decode(ByteView& from, NewBlockHash& to) noexcept {
     return from.length() == leftover ? DecodingResult::kOk : DecodingResult::kListLengthMismatch;
 }
 
-template <>
-DecodingResult decode(ByteView& from, NewBlockHashesPacket& to) noexcept {
-    return rlp::decode_vector(from, to);
-}
+// template <>
+// DecodingResult decode(ByteView& from, NewBlockHashesPacket& to) noexcept {
+//     return rlp::decode(from, to);
+// }
 
 template <>
 DecodingResult decode(ByteView& from, NewBlockPacket& to) noexcept {

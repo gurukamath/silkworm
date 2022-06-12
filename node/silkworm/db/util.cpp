@@ -153,7 +153,7 @@ namespace detail {
         BlockBodyForStorage to;
         rlp::success_or_throw(rlp::decode(from, to.base_txn_id));
         rlp::success_or_throw(rlp::decode(from, to.txn_count));
-        rlp::success_or_throw(rlp::decode_vector(from, to.ommers));
+        rlp::success_or_throw(rlp::decode(from, to.ommers));
 
         if (from.length() != leftover) {
             throw rlp::DecodingError(DecodingResult::kListLengthMismatch);
